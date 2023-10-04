@@ -1,0 +1,49 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import PricingCard from "@components/pricing.astro";
+
+const pricing = [
+  {
+    name: "Personal",
+    price: "Free",
+    popular: false,
+    features: [
+      "Feature List Coming Soon!"
+    ],
+    button: {
+      text: "Coming Soon!",
+      link: "",
+    },
+  },
+  {
+    name: "Startup",
+    price: "TBD",
+    popular: true,
+    features: [
+      "All Free Features",
+      "Feature List Coming Soon!",
+    ],
+    button: {
+      text: "Coming Soon!",
+      link: "",
+    },
+  },
+];
+---
+
+<Layout title="Pricing">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Pricing</Fragment>
+      <Fragment slot="desc">
+        Simple & Predictable pricing. No Surprises.
+      </Fragment>
+    </Sectionhead>
+
+    <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-screen-lg mt-12">
+      {pricing.map((item) => <PricingCard plan={item} />)}
+    </div>
+  </Container>
+</Layout>
